@@ -1,0 +1,477 @@
+/* ===================================================================
+   SHIELDNET MULTI-THEME SYSTEM
+   6 themes: default (blue), cyber (red), nature (green),
+   ocean (teal), sunset (orange), royal (purple)
+   =================================================================== */
+
+/* ---- Theme: Default (Blue) ---- */
+:root,
+[data-theme="blue"] {
+  --theme-primary:       #2563eb;
+  --theme-primary-dark:  #1d4ed8;
+  --theme-secondary:     #7c3aed;
+  --theme-accent:        #06b6d4;
+  --theme-gradient-from: #2563eb;
+  --theme-gradient-to:   #7c3aed;
+  --theme-hero-bg-from:  #eff6ff;
+  --theme-hero-bg-to:    #f5f3ff;
+  --theme-badge-bg:      #dbeafe;
+  --theme-badge-text:    #1e40af;
+  --theme-glow:          rgba(37, 99, 235, 0.3);
+  --theme-name:          "Blue Shield";
+}
+
+/* ---- Theme: Cyber (Red) ---- */
+[data-theme="red"] {
+  --theme-primary:       #dc2626;
+  --theme-primary-dark:  #b91c1c;
+  --theme-secondary:     #9f1239;
+  --theme-accent:        #f97316;
+  --theme-gradient-from: #dc2626;
+  --theme-gradient-to:   #9f1239;
+  --theme-hero-bg-from:  #fff1f2;
+  --theme-hero-bg-to:    #fff7ed;
+  --theme-badge-bg:      #fee2e2;
+  --theme-badge-text:    #991b1b;
+  --theme-glow:          rgba(220, 38, 38, 0.3);
+  --theme-name:          "Cyber Red";
+}
+
+/* ---- Theme: Nature (Green) ---- */
+[data-theme="green"] {
+  --theme-primary:       #16a34a;
+  --theme-primary-dark:  #15803d;
+  --theme-secondary:     #065f46;
+  --theme-accent:        #84cc16;
+  --theme-gradient-from: #16a34a;
+  --theme-gradient-to:   #065f46;
+  --theme-hero-bg-from:  #f0fdf4;
+  --theme-hero-bg-to:    #ecfdf5;
+  --theme-badge-bg:      #dcfce7;
+  --theme-badge-text:    #166534;
+  --theme-glow:          rgba(22, 163, 74, 0.3);
+  --theme-name:          "Nature Green";
+}
+
+/* ---- Theme: Ocean (Teal) ---- */
+[data-theme="teal"] {
+  --theme-primary:       #0d9488;
+  --theme-primary-dark:  #0f766e;
+  --theme-secondary:     #0369a1;
+  --theme-accent:        #22d3ee;
+  --theme-gradient-from: #0d9488;
+  --theme-gradient-to:   #0369a1;
+  --theme-hero-bg-from:  #f0fdfa;
+  --theme-hero-bg-to:    #eff6ff;
+  --theme-badge-bg:      #ccfbf1;
+  --theme-badge-text:    #134e4a;
+  --theme-glow:          rgba(13, 148, 136, 0.3);
+  --theme-name:          "Ocean Teal";
+}
+
+/* ---- Theme: Sunset (Orange) ---- */
+[data-theme="orange"] {
+  --theme-primary:       #ea580c;
+  --theme-primary-dark:  #c2410c;
+  --theme-secondary:     #b45309;
+  --theme-accent:        #f59e0b;
+  --theme-gradient-from: #ea580c;
+  --theme-gradient-to:   #b45309;
+  --theme-hero-bg-from:  #fff7ed;
+  --theme-hero-bg-to:    #fefce8;
+  --theme-badge-bg:      #ffedd5;
+  --theme-badge-text:    #9a3412;
+  --theme-glow:          rgba(234, 88, 12, 0.3);
+  --theme-name:          "Sunset Orange";
+}
+
+/* ---- Theme: Royal (Purple) ---- */
+[data-theme="purple"] {
+  --theme-primary:       #7c3aed;
+  --theme-primary-dark:  #6d28d9;
+  --theme-secondary:     #a21caf;
+  --theme-accent:        #e879f9;
+  --theme-gradient-from: #7c3aed;
+  --theme-gradient-to:   #a21caf;
+  --theme-hero-bg-from:  #faf5ff;
+  --theme-hero-bg-to:    #fdf4ff;
+  --theme-badge-bg:      #ede9fe;
+  --theme-badge-text:    #5b21b6;
+  --theme-glow:          rgba(124, 58, 237, 0.3);
+  --theme-name:          "Royal Purple";
+}
+
+/* ============================================================
+   GLOBAL ANIMATION KEYFRAMES
+   ============================================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-12px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--theme-glow); }
+  50%       { box-shadow: 0 0 0 16px transparent; }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes progressFill {
+  from { width: 0%; }
+  to   { width: var(--progress-target, 100%); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes rotate360 {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes dash {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes borderPulse {
+  0%, 100% { border-color: var(--theme-primary); }
+  50%       { border-color: var(--theme-accent); }
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+@keyframes blinkCursor {
+  0%, 100% { border-right-color: var(--theme-primary); }
+  50%       { border-right-color: transparent; }
+}
+
+/* ============================================================
+   ANIMATION UTILITY CLASSES
+   ============================================================ */
+.animate-fade-in-up   { animation: fadeInUp 0.7s ease both; }
+.animate-fade-in      { animation: fadeIn 0.6s ease both; }
+.animate-fade-in-left { animation: fadeInLeft 0.7s ease both; }
+.animate-fade-in-right{ animation: fadeInRight 0.7s ease both; }
+.animate-scale-in     { animation: scaleIn 0.6s ease both; }
+.animate-float        { animation: float 3s ease-in-out infinite; }
+.animate-pulse-glow   { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-slide-down   { animation: slideDown 0.5s ease both; }
+.animate-rotate       { animation: rotate360 1s linear infinite; }
+
+/* Delay classes */
+.delay-100  { animation-delay: 0.1s; }
+.delay-200  { animation-delay: 0.2s; }
+.delay-300  { animation-delay: 0.3s; }
+.delay-400  { animation-delay: 0.4s; }
+.delay-500  { animation-delay: 0.5s; }
+.delay-600  { animation-delay: 0.6s; }
+.delay-700  { animation-delay: 0.7s; }
+.delay-800  { animation-delay: 0.8s; }
+.delay-1000 { animation-delay: 1.0s; }
+
+/* ============================================================
+   THEME-AWARE UTILITIES
+   ============================================================ */
+.theme-gradient {
+  background: linear-gradient(135deg, var(--theme-gradient-from), var(--theme-gradient-to));
+}
+.theme-gradient-text {
+  background: linear-gradient(135deg, var(--theme-gradient-from), var(--theme-gradient-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.theme-border {
+  border-color: var(--theme-primary);
+}
+.theme-bg-light {
+  background: linear-gradient(135deg, var(--theme-hero-bg-from), var(--theme-hero-bg-to));
+}
+.theme-text {
+  color: var(--theme-primary);
+}
+.theme-badge {
+  background: var(--theme-badge-bg);
+  color: var(--theme-badge-text);
+}
+.theme-glow-effect {
+  box-shadow: 0 0 30px var(--theme-glow), 0 20px 60px rgba(0,0,0,0.1);
+}
+.theme-btn {
+  background: linear-gradient(135deg, var(--theme-gradient-from), var(--theme-gradient-to));
+  color: #fff;
+  border: none;
+  transition: all 0.3s ease;
+}
+.theme-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px var(--theme-glow);
+}
+.theme-btn-outline {
+  border: 2px solid var(--theme-primary);
+  color: var(--theme-primary);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+.theme-btn-outline:hover {
+  background: var(--theme-primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   PROGRESS BAR STYLES
+   ============================================================ */
+.progress-wrapper {
+  position: relative;
+  background: #f3f4f6;
+  border-radius: 999px;
+  overflow: hidden;
+  height: 10px;
+}
+.progress-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--theme-gradient-from), var(--theme-gradient-to));
+  position: relative;
+  transition: width 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 0%;
+}
+.progress-bar.animated {
+  width: var(--progress-target, 0%);
+}
+.progress-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 40px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5));
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+/* Striped variant */
+.progress-bar.striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255,255,255,.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255,255,255,.15) 50%,
+    rgba(255,255,255,.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+  animation: none;
+}
+/* Thick variant */
+.progress-wrapper.thick { height: 16px; }
+/* Thin variant */
+.progress-wrapper.thin  { height: 6px; }
+
+/* ============================================================
+   CARD & GLASSMORPHISM STYLES
+   ============================================================ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+.glass-card-dark {
+  background: rgba(15, 15, 30, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================================
+   FLOATING PARTICLES (decorative blobs)
+   ============================================================ */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.15;
+  pointer-events: none;
+  animation: float 6s ease-in-out infinite;
+}
+.blob-primary {
+  background: var(--theme-primary);
+}
+.blob-secondary {
+  background: var(--theme-secondary);
+  animation-delay: -3s;
+}
+
+/* ============================================================
+   SCROLL REVEAL
+   ============================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================================
+   STAT COUNTER CARD
+   ============================================================ */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--theme-primary);
+  opacity: 0.06;
+}
+
+/* ============================================================
+   HERO SECTION
+   ============================================================ */
+.hero-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='g' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 10 0 L 0 0 0 10' fill='none' stroke='rgba(0,0,0,0.04)' stroke-width='1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23g)'/%3E%3C/svg%3E");
+}
+
+/* ============================================================
+   CYBER SHIELD ANIMATION (decorative)
+   ============================================================ */
+@keyframes shieldPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.05); opacity: 0.9; }
+}
+.shield-pulse {
+  animation: shieldPulse 2s ease-in-out infinite;
+}
+
+/* ============================================================
+   THEME SWITCHER BUTTON GROUP
+   ============================================================ */
+.theme-swatch {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+.theme-swatch:hover {
+  transform: scale(1.15);
+}
+.theme-swatch.active {
+  border-color: #fff;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   PRICING CARD HIGHLIGHT
+   ============================================================ */
+.pricing-popular {
+  position: relative;
+  border: 2px solid var(--theme-primary);
+  transform: scale(1.03);
+  box-shadow: 0 20px 60px var(--theme-glow);
+}
+.pricing-popular-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--theme-gradient-from), var(--theme-gradient-to));
+  color: white;
+  padding: 4px 20px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   HOW IT WORKS STEPS
+   ============================================================ */
+.step-connector {
+  position: absolute;
+  top: 20px;
+  left: calc(50% + 32px);
+  right: calc(-50% + 32px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--theme-gradient-from), var(--theme-gradient-to));
+  opacity: 0.3;
+}
+
+/* ============================================================
+   TICKER / MARQUEE
+   ============================================================ */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
